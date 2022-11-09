@@ -1,4 +1,5 @@
 ﻿//Assignment on inheritance - Samuel Palmér TE20A
+//All classes relating to the same assignment are in the same file
 
 using System.Numerics;
 
@@ -28,12 +29,19 @@ Weapon w = new Weapon();
 Armor a = new Armor();
 Console.WriteLine($"{w.Name}: {w.Damage}");
 Console.WriteLine($"{a.Name}: {a.Rating}");
-
 Console.Read();
 
+
+Jedi j = new Jedi("Yoda");
+Console.WriteLine($"{j.Name}: {j.ForceSide}");
 Console.Read();
 
+
+Avatar avatar = new Avatar();
+PoisonPotion p = new PoisonPotion();
+p.Use(avatar);
 Console.Read();
+
 
 Console.Read();
 
