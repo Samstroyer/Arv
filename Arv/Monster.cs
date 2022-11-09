@@ -28,14 +28,11 @@ public class Teleporter : Monster
 
     public override void Update()
     {
+        timer--;
         if (timer == 0)
         {
             RandomPosition();
             ResetTimer();
-        }
-        else
-        {
-            timer--;
         }
     }
 

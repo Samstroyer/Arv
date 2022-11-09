@@ -89,6 +89,7 @@ public class LootBoxStore
         foreach (var item in LootBoxes)
         {
             Console.WriteLine($"{temp}: {item.Name}");
+            temp++;
         }
 
         bool choosing = true, inRange = false;
@@ -103,6 +104,7 @@ public class LootBoxStore
         } while (!choosing && inRange);
 
         LootBoxes[selection].Open();
+        LootBoxes.RemoveAt(selection);
 
     }
 
@@ -113,6 +115,7 @@ public class LootBoxStore
         if (index >= 0 && index < LootBoxes.Count)
         {
             LootBoxes[index].Open();
+            LootBoxes.RemoveAt(index);
         }
         else
         {
