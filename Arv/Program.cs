@@ -43,6 +43,14 @@ p.Use(avatar);
 Console.Read();
 
 
+Teleporter t = new Teleporter();
+Console.WriteLine(t.Position.X);
+t.Update();
+t.Update();
+t.Update();
+t.Update();
+t.Update();
+Console.WriteLine(t.Position.X);
 Console.Read();
 
 Console.Read();
