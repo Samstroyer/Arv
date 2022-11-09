@@ -2,8 +2,8 @@ using System;
 
 public class LootBox
 {
-    public string Name { get; set; }
-    public List<string> Content { get; set; }
+    public string Name { get; set; } = "--placeholder--";
+    public List<string> Content { get; set; } = new() { "empty" };
 
     public virtual void Open()
     {
@@ -30,6 +30,11 @@ public class NormalBox : LootBox
         };
     }
 
+    public override void Open()
+    {
+        Console.WriteLine("Opening normal box, these are your items:");
+        base.Open();
+    }
 }
 
 public class RareBox : LootBox
@@ -46,6 +51,12 @@ public class RareBox : LootBox
             "Rare stuff 2",
             "Super omega omega rare item"
         };
+    }
+
+    public override void Open()
+    {
+        Console.WriteLine("Opening rare box, these are your items:");
+        base.Open();
     }
 }
 
@@ -71,11 +82,41 @@ public class LootBoxStore
         }
     }
 
-    public void ListBoxes()
+    public void Open()
     {
+        Console.WriteLine("These are your boxes:");
+        int temp = 1;
         foreach (var item in LootBoxes)
         {
+            Console.WriteLine($"{temp}: {item.Name}");
+        }
 
+        bool choosing = true, inRange = false;
+        int selection;
+        do
+        {
+            Console.WriteLine("Enter the number of the box you want to open");
+
+            choosing = int.TryParse(Console.ReadLine(), out selection);
+
+            inRange = selection > 0 && selection <= LootBoxes.Count;
+        } while (!choosing && inRange);
+
+        LootBoxes[selection].Open();
+
+    }
+
+    public void Open(int i)
+    {
+        int index = i - 1;
+
+        if (index >= 0 && index < LootBoxes.Count)
+        {
+            LootBoxes[index].Open();
+        }
+        else
+        {
+            Console.WriteLine("Box number not existing!\nWrite from 0 up to {0}", LootBoxes.Count);
         }
     }
 }

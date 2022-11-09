@@ -3,7 +3,7 @@ using System.Numerics;
 
 public class Monster
 {
-    public string Name { get; set; }
+    public string Name { get; set; } = "--placeholder--";
     public int Hitpoints { get; set; }
     public Vector2 Position { get; set; }
     public Vector2 Velocity { get; set; }

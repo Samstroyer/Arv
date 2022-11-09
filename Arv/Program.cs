@@ -53,4 +53,7 @@ t.Update();
 Console.WriteLine(t.Position.X);
 Console.Read();
 
+
+LootBoxStore store = new LootBoxStore();
+store.Open(3);
 Console.Read();
